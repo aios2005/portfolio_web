@@ -206,24 +206,20 @@ h2 {
 }
 
 .counter-box {
-    background-color: #000000;
     display: inline-block;
-    padding: 8px 15px;
-    border-radius: 8px;
-    border: 1px solid #333;
+    padding: 5px;
     margin: 10px 0;
 }
 
-/* Garante que o SVG gerado fique nítido e com boa cor */
-.counter-svg {
-    height: 35px;
+/* Centraliza e dá uma leve escala no badge para mobile */
+.counter-badge-img {
+    height: 30px;
     display: block;
-    filter: invert(48%) sepia(79%) saturate(2500%) ridge-color(linear); 
-    /* O SVG original vem em tons padrão, o filtro abaixo deixa ele com tom esverdeado/neon */
-    filter: hue-rotate(60deg) brightness(1.2); 
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0, 255, 102, 0.3);
 }
 
 .counter-text-bottom {
     font-size: 0.9rem;
-    margin-top: 10px;
+    margin-top: 5px;
 }
