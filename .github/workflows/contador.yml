@@ -1,0 +1,33 @@
+name: Computar Visita Global
+
+on:
+  repository_dispatch:
+    types: [nova_visita]
+
+permissions:
+  contents: write
+
+jobs:
+  atualizar_contador:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v3
+
+    - name: Atualizar JSON do Contador
+      run: |
+        # Lê o valor atual, soma 1 usando node e reescreve o arquivo
+        node -e "
+          const fs = require('fs');
+          const data = JSON.parse(fs.readFileSync('contador.json'));
+          data.visitas += 1;
+          fs.writeFileSync('contador.json', JSON.stringify(data, null, 2));
+        "
+
+    - name: Fazer Commit e Push do novo número
+      run: |
+        git config --global user.name 'GitHub Actions Bot'
+        git config --global user.email 'actions@github.com'
+        git add contador.json
+        git commit -m "🤖 Contador: +1 visitante vindo do Instagram [skip ci]"
+        git push
