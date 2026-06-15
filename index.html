@@ -108,15 +108,12 @@
             </div>
         </section>
 
-        <!-- BLOCO: CONTADOR DE VISITAS -->
         <section class="bento-card counter-card">
             <p class="counter-text-top">PARABÉNS! VOCÊ GANHOU... um portfólio para ler!</p>
-            <br/>
             <div class="counter-box">
-                <span class="counter-number" id="visit-count">...</span>
+                <span class="counter-number" id="visit-count">01000</span>
             </div>
-            <br/>
-            <p class="counter-text-bottom">Você é o visitante nº <span class="highlight">X</span> a desatar os nós desta página!</p>
+            <p class="counter-text-bottom">Você é o visitante nº <span class="highlight">1000</span> a desatar os nós desta página!</p>
         </section>
 
         <!-- FOOTER -->
@@ -126,23 +123,5 @@
 
     </div>
 
-    <script>
-        const nomeUsuario = 'aios2005'; 
-        const urlContador = `https://api.countapi.xyz/hit/${nomeUsuario}.github.io/visits`; 
-        
-        fetch(`https://api.codetabs.com/v1/counter?cid=${nomeUsuario}-instagram-bio&i=1`)
-            .then(response => response.json())
-            .then(data => {
-                // Atualiza o painel digital verde com o número formatado
-                document.getElementById('visit-count').innerText = data.count;
-                // Atualiza o "X" na frase de baixo
-                document.querySelector('.counter-text-bottom .highlight').innerText = data.count;
-            })
-            .catch(error => {
-                console.log('Erro ao carregar contador, usando modo offline.');
-                document.getElementById('visit-count').innerText = "007";
-                document.querySelector('.counter-text-bottom .highlight').innerText = "especial";
-            });
-    </script>
 </body>
 </html>
