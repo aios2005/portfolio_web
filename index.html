@@ -123,5 +123,32 @@
 
     </div>
 
+    <script>
+        const USUARIO = 'aios2005';
+        const REPOSITORIO = 'portfolio_web'; 
+
+        fetch(`https://${USUARIO}.github.io/${REPOSITORIO}/contador.json`, { cache: "no-store" })
+            .then(response => response.json())
+            .then(data => {
+                const numeroFormatado = String(data.visitas).padStart(5, '0');
+                document.getElementById('visit-count').innerText = numeroFormatado;
+                document.querySelector('.counter-text-bottom .highlight').innerText = data.visitas;
+            })
+            .catch(() => console.log("Carregando contador..."));
+
+        // Dispara o gatilho para o GitHub Actions computar a nova visita
+        // Para evitar contagens duplicadas se a mesma pessoa atualizar a página na sequência
+        if (!sessionStorage.getItem('computou_visita')) {
+            fetch(`https://api.github.com/repos/${USUARIO}/${REPOSITORIO}/dispatches`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/vnd.github.v3+json',
+                },
+                body: JSON.stringify({ event_type: 'nova_visita' })
+            });
+            sessionStorage.setItem('computou_visita', 'true');
+        }
+    </script>
+
 </body>
 </html>
