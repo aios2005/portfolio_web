@@ -1,0 +1,190 @@
+/* RESET E CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #002557; /* Cor de fundo solicitada */
+    font-family: 'Arial', sans-serif;
+    color: #FFFFFF; /* Fonte Arial Branco */
+    display: flex;
+    justify-content: center;
+    padding: 25px 15px;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px; /* Limita a largura ideal para telas de celular */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* HEADER */
+.profile-header {
+    text-align: center;
+}
+
+.profile-img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ffffff;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 1.5rem; 
+    font-weight: bold;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* VARAL DE FOTOS (PREPARAÇÃO DE LAYOUT) */
+.photo-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.polaroid {
+    width: 22%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 4px solid #fff;
+    border-bottom: 12px solid #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transform: rotate(calc(var(--blur, 2deg) * 1));
+}
+
+/* CARDS NO ESTILO BENTO GRID */
+.bento-card {
+    background-color: rgba(0, 12, 31, 0.65); 
+    border: 2px solid #000000;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+h2 {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* LAYOUT INTERNO DOS CARDS */
+.card-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.card-icon, .card-icon-img {
+    font-size: 2.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+}
+
+.card-text {
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.portfolio-label {
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* LINKS INTERNOS */
+.main-link {
+    color: #FFC107; 
+    font-size: 0.85rem;
+    word-break: break-all;
+    text-decoration: underline;
+    display: inline-block;
+    margin-top: 2px;
+}
+
+.main-link:hover {
+    color: #FFE082;
+}
+
+/* LISTAS DE IDIOMAS */
+.card-content-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.language-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.85rem;
+    line-height: 1.3;
+}
+
+.flag {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+/* LISTA DE CONTATOS */
+.contacts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #FFC107;
+    text-decoration: underline;
+    font-size: 0.9rem;
+}
+
+.contact-item i {
+    font-size: 1.4rem;
+    color: #ffffff;
+    min-width: 25px;
+    text-align: center;
+}
+
+/* CORES DOS ÍCONES ESPECÍFICOS (OPCIONAL) */
+.contact-item .instagram-color { color: #E1306C; }
+.contact-item .linkedin-color { color: #0077B5; }
+
+/* FOOTER */
+.page-footer {
+    text-align: center;
+    font-size: 0.75rem;
+    opacity: 0.6;
+    margin-top: 10px;
+    padding-bottom: 20px;
+}
+
+/* SUAVIZAÇÃO PARA DISPOSITIVOS MUITO PEQUENOS */
+@media (max-width: 360px) {
+    h1 { font-size: 1.3rem; }
+    h2 { font-size: 1.1rem; }
+    .card-text, .language-item, .contact-item { font-size: 0.8rem; }
+}
