@@ -188,3 +188,47 @@ h2 {
     h2 { font-size: 1.1rem; }
     .card-text, .language-item, .contact-item { font-size: 0.8rem; }
 }
+
+/* ESTILIZAÇÃO DO CONTADOR NOSTÁLGICO */
+.counter-card {
+    text-align: center;
+    border: 2px dashed #FFC107; 
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 25px 15px;
+}
+
+.counter-text-top {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #FFC107;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.counter-box {
+    background-color: #000000; 
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    margin: 10px 0;
+}
+
+.counter-number {
+    font-family: 'Courier New', Courier, monospace; 
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #00FF66; 
+    text-shadow: 0 0 10px rgba(0, 255, 102, 0.7); /* Efeito de brilho digital */
+    letter-spacing: 4px;
+}
+
+.counter-text-bottom {
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.counter-text-bottom .highlight {
+    color: #FFC107;
+    font-weight: bold;
+}
