@@ -126,7 +126,9 @@
     <script>
         const USUARIO = 'aios2005';
         const REPOSITORIO = 'portfolio_web'; 
+        const TOKEN = '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';
 
+        // 1. Lê o JSON atualizado
         fetch(`https://${USUARIO}.github.io/${REPOSITORIO}/contador.json`, { cache: "no-store" })
             .then(response => response.json())
             .then(data => {
@@ -136,17 +138,20 @@
             })
             .catch(() => console.log("Carregando contador..."));
 
-        // Dispara o gatilho para o GitHub Actions computar a nova visita
-        // Para evitar contagens duplicadas se a mesma pessoa atualizar a página na sequência
+        // 2. Dispara a Action de forma autorizada
         if (!sessionStorage.getItem('computou_visita')) {
             fetch(`https://api.github.com/repos/${USUARIO}/${REPOSITORIO}/dispatches`, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/vnd.github.v3+json',
+                    'Authorization': `Bearer ${TOKEN}`,
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ event_type: 'nova_visita' })
+            })
+            .then(res => {
+                if(res.ok) sessionStorage.setItem('computou_visita', 'true');
             });
-            sessionStorage.setItem('computou_visita', 'true');
         }
     </script>
 
